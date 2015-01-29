@@ -26,7 +26,7 @@ int nextWaypoint;
 main(){
 }
 
-// This function will basically waste time, in milliseconds
+// Basically wastes time, in milliseconds
 killtime(int ms)
 {
  new start = time();
@@ -35,93 +35,93 @@ killtime(int ms)
 }
 
 // **** Instruction Paths ========================================
-// this is the instruction list that will activate the motion scripts to move through path "A"
+// The instruction list that will activate the motion scripts to move through path "A"
 instructionPathA(){
 }
 
-// this is the instruction list that will activate the motion scripts to move through path "B"
+// The instruction list that will activate the motion scripts to move through path "B"
 instructionPathB(){
 }
 
-// this instruction list will activate a default path in case we get an error and lose our current location
+// This instruction list will activate a default path in case we get an error and lose our current location
 instructionPathE(){
 }
 // --------------------------------------------------------------
 
 // **** Waypoint related ========================================
-// this function will return the last activated Waypoint
+// Returns the last activated Waypoint
 getCurrentWayPoint(){
 }
 
-// this function will return the next Waypoint in the list
+// Returns the next Waypoint in the list
 getNextWaypoint(){
 }
 
-// this function will call the motion scripts in order to go to the next waypoint on the current path
+// Calls the motion scripts in order to go to the next waypoint on the current path
 goToNextWaypoint(){
 }
 
-// this function will be called to update to a new waypoint, once the target is reached
+// Called to update to a new waypoint, once the target is reached
 updateNextWaypoint(){
 }
 
-// this function will be used to count how long it will take to go from a current waypoint to the next waypoint
+// Counts how long it will take to go from a current waypoint to the next waypoint
 // these values should be determined experimentally, based on how long it takes cleo to move to it
 timer(currentWaypoint, nextWaypoint){
 }
 // --------------------------------------------------------------
 
 // **** Motion Scripts ==========================================
-// this will be called whenever we want to move PLEO forward. time is for how long we want this to run
+// Called to move PLEO forward. time is for how long we want this to run
 moveForward(int time){
 }
 
-// this will be called whenever we want to move PLEO backward. time is for how long we want this to run
+// Called to move PLEO backward. time is for how long we want this to run
 moveBackward(int time){
 }
 
-// this will be called whenever we want PLEO to execute a "turn Left" action
+// Called to execute a "turn Left" action
 turnLeft(){
 }
 
-// this will be called whenever we want PLEO to execute a "turn Right" action
+// Called to execute a "turn Right" action
 turnRight(){
 
-// this will be called whenever we want the neck to move right for sensing 
+// Called to move neck right for sensing 
 moveNeckRight(){
 }
 
-// this will be called whenever we want the neck to move left for sensing 
+// Called to move neck left for sensing 
 moveNeckLeft(){
 }
 
-// this will be called whenever we want the neck to go straight, for sensing or default 
+// Called to move neck straight for sensing, or default 
 moveNeckStraight(){
 }
 
-// this will be called whenever we want the neck to move down for sensing 
+// Called to move neck down for sensing 
 moveNeckDown(){
 }
 
-// this will be called whenever we want the neck to move up, for default 
+// Called to move neck up, as default
 moveNeckUp(){
 }
 
-// this is will wag the tail, for aesthetic purposes
+// Wags the tail, for aesthetic purposes
 wagTail(){
 }
 // --------------------------------------------------------------
 
 // **** Sensor Scripts ===============================================
-// this function will be called whenever we want to sense an edge. It will probably be called very often/continuously
+// Senses if there is an edge. It will probably be called very often/continuously
 senseEdge{}{
 }
 
-// this function will be called whenever we need to sense an object. It will probably be called very often/continuously
+// Senses if there is an object/obstacle. It will probably be called very often/continuously
 senseObject(){
 }
 
-// this function that will detect when we are at a corner.
+// this function that will detect if there is a corner.
 // To implement this, it should probably try to sense an edge to the sides and to the front
 // It should return the direction it needs to go to avoid falling (either left, right, or backwards)
 senseCorner(){
