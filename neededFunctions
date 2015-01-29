@@ -1,17 +1,24 @@
+// Variables ==================================================
 /* these integer arrays represent the order in which we wish to traverse the possible paths, in terms of waypoints
  eg. We can think of the map as a set of waypoints:
  |-----------|
- |2  1 14  13|
+ |2  1  14 13|
  |3   15   12|
  |4   16   11|
  |5   17   10|
- |6   7 8   9|
+ |6  7  8   9|
  |-----------|
  Then if we could represent a given path using an array, for example the path pathA = [1,2,3,4,5,6,7,8,17,16,15,12],
  would start at 'A' and go through all the obstacles
 */
 int[] pathA;
 int[] pathB;
+// this variable stores the last activated waypoint
+int currentWaypoint;
+// this variable stores the next waypoint, generally depending on the chosen path and current waypoint,
+// but also could depend on other things
+int nextWaypoint;
+// -------------------------------------------------------------
 
 
 // main code will go here
@@ -19,14 +26,22 @@ int[] pathB;
 main(){
 }
 
+// Instructions Paths ===========================================
+
 // this is the instruction list that will activate the motion scripts to move through path "A"
 instructionPathA(){
-  
 }
 
 // this is the instruction list that will activate the motion scripts to move through path "B"
 instructionPathB(){
 }
+
+// this instruction list will activate a default path in case we get an error and lose our current location
+instructionPathE(){
+}
+// --------------------------------------------------------------
+
+// Waipoint calls ===============================================
 
 // this function will return the last activated Waypoint
 getCurrentWayPoint(){
@@ -36,7 +51,7 @@ getCurrentWayPoint(){
 getNextWaypoint(){
 }
 
-// this function will call the motion scripts in order to go to the next waypoint  
+// this function will call the motion scripts in order to go to the next waypoint on the current path
 goToNextWaypoint(){
 }
 
@@ -44,6 +59,13 @@ goToNextWaypoint(){
 updateNextWaypoint(){
 }
 
+// this function will be used to count how long it will take to go from a current waypoint to the next waypoint
+// these values should be determined experimentally, based on how long it takes cleo to move to it
+timer(currentWaypoint, nextWaypoint){
+}
+// --------------------------------------------------------------
+
+// Motion Scripts ===============================================
 // this function will be called whenever we want to move PLEO forward
 moveForward(){
 }
@@ -59,7 +81,9 @@ turnLeft(){
 // this function will be called whenever we want PLEO to execute a "turn Right" action
 turnRight(){
 }
+// --------------------------------------------------------------
 
+// Sensor Scripts ===============================================
 // this function will be called whenever we want to sense an edge. It will probably be called very often/continuously
 senseEdge{}{
 }
@@ -68,13 +92,13 @@ senseEdge{}{
 senseObject(){
 }
 
-// this function will be used to count how long it will take to go from a current waypoint to the next waypoint
-// these values should be determined experimentally, based on how long it takes cleo to move to it
-timer(currentWaypoint, nextWaypoint){
-}
-
-// this is a more complicated function that will detect when we are at a corner.
-// To implement this, it will try to sense for an edge to the sides and to the front
-// It should return the direction it needs to go to avoid falling (either left or right)
+// this function that will detect when we are at a corner.
+// To implement this, it should probably try to sense an edge to the sides and to the front
+// It should return the direction it needs to go to avoid falling (either left, right, or backwards)
 senseCorner(){
 }
+// --------------------------------------------------------------
+
+
+
+
