@@ -80,6 +80,10 @@ moveForward(int time){
 moveBackward(int time){
 }
 
+// A specific implementation of moveBackward, for when we reach an edge and need more space
+backUp(){
+}
+
 // Called to execute a "turn Left" action
 turnLeft(){
 }
