@@ -1,0 +1,31 @@
+#include <Log.inc>
+#include <Script.inc>
+#include <Motion.inc>
+#include "motions.inc"
+#include <joint.inc>
+#include <sensor.inc>
+#include <time.inc>
+
+new sensorV;
+public init()
+{
+printf("Start debugging.\n")
+}
+public main()
+{
+	joint_move_to(JOINT_NECK_HORIZONTAL, 60, 20, angle_degrees); 
+	killtime(2000);
+
+	while(1){
+		sensorV=sensor_get_value(SENSOR_OBJECT);
+		printf("Sensor Value is: %d\n",sensorV);
+		killtime(1000);
+	}
+}
+killtime(ms)
+{
+	new start = time();
+	while (time() - start < ms)
+	{
+	}
+}
