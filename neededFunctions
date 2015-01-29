@@ -1,22 +1,29 @@
+// main code will go here
 main(){
 
 }
 
+// this function will be called whenever we want to move PLEO forward
 moveForward(){
 }
 
+// this function will be called whenever we want to move PLEO backward
 moveBackward(){
 }
 
+// this function will be called whenever we want PLEO to execute a "turn Left" action
 turnLeft(){
 }
 
+// this function will be called whenever we want PLEO to execute a "turn Right" action
 turnRight(){
 }
 
+// this function will be called whenever we want to sense an edge. It will probably be called very often/continuously
 senseEdge{}{
 }
 
+// this function will be called whenever we need to sense an object. It will probably be called very often/continuously
 senseObject(){
 }
 
