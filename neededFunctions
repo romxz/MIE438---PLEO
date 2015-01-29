@@ -1,0 +1,24 @@
+main(){
+
+}
+
+moveForward(){
+}
+
+moveBackward(){
+}
+
+turnLeft(){
+}
+
+turnRight(){
+}
+
+senseEdge{}{
+}
+
+senseObject(){
+}
+
+timer(currentWaypoint, nextWaypoint){
+}
