@@ -1,6 +1,31 @@
+/* these integer arrays represent the order in which we wish to traverse the possible paths, in terms of waypoints
+ eg. We can think of the map as a set of waypoints:
+ |-----------|
+ |2  1 14  13|
+ |3   15   12|
+ |4   16   11|
+ |5   17   10|
+ |6   7 8   9|
+ |-----------|
+ Then if we could represent a given path using an array, for example the path pathA = [1,2,3,4,5,6,7,8,17,16,15,12],
+ would start at 'A' and go through all the points
+*/
+int[] pathA;
+int[] pathB;
+
+
 // main code will go here
 // it will call other functions, below, that can be implemented independently
 main(){
+}
+
+// this is the instruction list that will activate the motion scripts to move through path "A"
+instructionPathA(){
+  
+}
+
+// this is the instruction list that will activate the motion scripts to move through path "B"
+instructionPathB(){
 }
 
 // this function will return the last activated Waypoint
