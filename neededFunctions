@@ -34,7 +34,7 @@ killtime(int ms)
 	}
 }
 
-// **** Instructions Paths ===========================================
+// **** Instruction Paths ========================================
 // this is the instruction list that will activate the motion scripts to move through path "A"
 instructionPathA(){
 }
@@ -48,7 +48,7 @@ instructionPathE(){
 }
 // --------------------------------------------------------------
 
-// **** Waipoint calls ===============================================
+// **** Waypoint related ========================================
 // this function will return the last activated Waypoint
 getCurrentWayPoint(){
 }
@@ -71,7 +71,7 @@ timer(currentWaypoint, nextWaypoint){
 }
 // --------------------------------------------------------------
 
-// **** Motion Scripts ===============================================
+// **** Motion Scripts ==========================================
 // this will be called whenever we want to move PLEO forward. time is for how long we want this to run
 moveForward(int time){
 }
@@ -105,6 +105,10 @@ moveNeckDown(){
 
 // this will be called whenever we want the neck to move up, for default 
 moveNeckUp(){
+}
+
+// this is will wag the tail, for aesthetic purposes
+wagTail(){
 }
 // --------------------------------------------------------------
 
