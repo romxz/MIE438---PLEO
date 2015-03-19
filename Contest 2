@@ -1,0 +1,100 @@
+//
+// Pleo contest #2
+//
+// save space by packing all strings
+#pragma pack 1
+
+#include <Log.inc>
+#include <Script.inc>
+#include <Motion.inc>
+#include "motions.inc"
+#include <Sensor.inc>
+#include <Sound.inc>
+#include <joint.inc>
+#include <time.inc>
+#include "sounds.inc"
+
+
+public main(time, sensor_name: sensor, value)
+{
+	// Declaration variables
+	new state=0; // PLEO's states: 0=scanning, 1=walking towards owner & interacting, 2=walking towards target, 3=target interaction
+	new i; // dummy counting variable
+	new dirAngle=0; // used to keep track of the angle of the neck
+	new bool:heardMe=false; //used to keep track if pleo heard us or not
+	new turnDirection = 0; // -1 means left, 1 means right. 0 means no turning
+	new loud; // used to keep track of the sound
+
+	// Main code start
+	sound_play(snd_growl); // growl to indicate loop started again
+	joint_move_to(JOINT_NECK_HORIZONTAL, -65, 35, angle_degrees);
+	killtime(1500);
+	joint_move_to(JOINT_NECK_VERTICAL, 0, 35, angle_degrees);
+	killtime(1500);
+	
+	while (state==0){
+		// Voice recognition loop: Scanning
+		for (i = -65; i <=65; i+=5){
+			joint_move_to(JOINT_NECK_HORIZONTAL, i, 35, angle_degrees);
+			killtime(500);
+			loud = sensor_get_value(SENSOR_SOUND_LOUD);
+			killtime(500);
+			if (loud >= 30){
+					// saving angle and breaking out of scanning loop
+					dirAngle = i;
+					heardMe=true;
+					break;
+			}
+		}
+		if (heardMe){
+			/*
+			// Confirmation nod test
+			joint_move_to(JOINT_NECK_VERTICAL, 45, 35, angle_degrees);
+			killtime(4500);
+			joint_move_to(JOINT_NECK_VERTICAL, 0, 35, angle_degrees);
+			killtime(1500);
+			*/	
+			
+			if (dirAngle<0){
+				turnDirection=-1;
+			} else if (dirAngle>0){
+				turnDirection=1;
+			} else {
+				turnDirection=0;
+			}
+			if (turnDirection!=0){
+				turnToAngle(floatround(floatabs(float(dirAngle)/20)), turnDirection);
+			}
+			if (dirAngle == -55..55){
+				state=1;
+				walkForward();
+			}
+		}			
+	}
+
+	// reset sensor trigger
+	//return true;
+}
+
+turnToAngle(turnTimes, direction){
+	for(i=0;t<=turnTimes){
+	********************************************************* left here
+	}
+	
+}
+
+walkForward(){
+	motion_play(mot_com_walk_fs);
+	while (motion_is_playing(mot_com_walk_fs)){
+		sleep;
+	}
+}
+
+
+killtime(ms)
+{
+	new start = time();
+	while (time() - start < ms)
+	{
+	}
+}
